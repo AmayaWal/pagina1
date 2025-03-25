@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amistad Eterna</title>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        h1 {
+            color: #ff69b4;
+            margin-top: 50px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(0.5);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+        }
+        
+        .emoji {
+            font-size: 7rem;
+            animation: pulse 1.5s infinite;
+            position: absolute;
+        }
+        
+        .reflection {
+            background-color: #ffc0cb;
+            color: #800080;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 60%;
+            display: none;
+        }
+        
+        button {
+            background-color: #d80cdf;
+            color: #1245eb;
+            border: none;
+            padding: 20px 20px;
+            margin: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        button:hover {
+            background-color: #2bd609;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>La mejor amistad</h1>
+
+    <div id="emoji-container"></div>
+
+    <div class="reflection" id="reflection-text">
+        *La amistad verdadera no conoce fronteras ni distancias; es un lazo que trasciende cualquier obstáculo, cualquier silencio, y cualquier prueba. amigas unidas por un vínculo tan puro son el reflejo de lo que significa el apoyo incondicional. En los días
+        más oscuros, cuando las traiciones y los problemas acechan, cuando el mundo parece pesado y el corazón duele, siempre estas ahi: escuchando, levantando, y recordando el valor que cada una lleva dentro. No importa en qué estado de ánimo estén,
+        no importa cuán lejos estén físicamente, siempre encuentras el camino de regreso a esa conexión especial. Sos refugio en la tormenta, alegría en el triunfo, y fortaleza en el dolor. Tu eres prueba de que la amistad genuina no exige perfección,
+        solo entrega. Mientras nos tengamos una a la otra, no hay barrera insuperable ni herida irreparable. Porque, al final del día, lo único que importa es que estemos juntas, recordando que la verdadera riqueza no está en lo que se tiene, sino en
+        quiénes estan a con tigo animos querida amiga saldremos adelante, siempre cuenta con migo en las malas y las peores; Querida amiga.*
+    </div>
+
+    <button onclick="showText()">Querida amiga</button>
+
+    <script>
+        const emojiContainer = document.getElementById('emoji-container');
+        const emojis = ['', '', '', '', ''];
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+
+        for (let i = 0; i < 50; i++) {
+            const emoji = document.createElement('div');
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.className = 'emoji';
+            emoji.style.left = `${Math.random() * screenWidth}px`;
+            emoji.style.top = `${Math.random() * screenHeight}px`;
+            emojiContainer.appendChild(emoji);
+        }
+
+        function showText() {
+            const textBox = document.getElementById('reflection-text');
+            textBox.style.display = 'block';
+
+            // Emoji explosion
+            for (let i = 0; i < 30; i++) {
+                const emoji = document.createElement('div');
+                emoji.textContent = '❤️💞🌹';
+                emoji.className = 'emoji';
+                emoji.style.left = `${Math.random() * screenWidth}px`;
+                emoji.style.top = `${Math.random() * screenHeight}px`;
+                emoji.style.animationDuration = `${Math.random() * 1 + 2}s`;
+                emoji.style.fontSize = '2rem';
+                emojiContainer.appendChild(emoji);
+
+                setTimeout(() => {
+                    emoji.remove();
+                }, 2500);
+            }
+        }
+    </script>
+</body>
+
+</html>
